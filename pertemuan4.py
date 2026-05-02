@@ -1,3 +1,4 @@
+
 #1 membuat fungsi input
 print("Masukan angka : ")
 Angka = input()
@@ -15,7 +16,8 @@ print("Hasilnya", Data)
 
 #4 membuat konversi tipe data float pada input()
 Angka = float(input("Masukkan angka desimal: "))
-print("Angka yang kamu masukkan adalah: " + Angka)
+Hasil = Angka ** 2
+print(Hasil)
 
 #5 Menghitung sisi miring segitiga sebagai rumus segitiga dengan variabel Hypotenusa
 a = float(input("Masukkan sisi alas: "))
