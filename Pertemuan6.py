@@ -1,4 +1,4 @@
-#MATERI ALPRO II: LOOPS IN PYTHON
+# MATERI PERTEMUAN 6: LOOPS IN PYTHON
 #1 Contoh 1: Perulangan while
 while True:
     print("Perulangan ini tak berujung 😜") # Infinite loop
