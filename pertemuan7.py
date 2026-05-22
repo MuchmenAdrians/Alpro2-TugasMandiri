@@ -1,4 +1,4 @@
-#Materi pertemuan 7: List In Python
+# Materi pertemuan 7: Lists In Python
 
 # 1. Indexing List
 List = [0, 2, 3, 4, 5]
