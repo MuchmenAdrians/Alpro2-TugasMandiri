@@ -1,3 +1,4 @@
+# MATERI PERTEMUAN 5 : Making Decision in python
 #1 Comparison Operators
 jumlah_jeruk = 10
 jumlah_apel = 15
