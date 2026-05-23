@@ -1,142 +1,141 @@
 # MATERI Pertemuan 13 dan 14: Tuple, Dictionaries, Exceptions in Python
 
-
 # 1 (Membuat tuple dan tampilkan)
-tuple_1 = (1, 2, 4, 8)
-tuple_2 = 1., .5, .25, .125
-print("tuple_1 =", tuple_1)
-print("tuple_2 =", tuple_2)
+warna_primer = ("merah", "kuning", "biru")
+koordinat = 3.5, 7.2, 1.8
+print(warna_primer)
+print(koordinat)
 
 # 2 (Menggunakan tuple)
-my_tuple = (1, 10, 100, 1000)
-print(my_tuple[0])
-print(my_tuple[-1])
-print(my_tuple[1:])
-print(my_tuple[:-2])
-for elemen in my_tuple:
-    print(elemen)
+hari = ("Senin", "Selasa", "Rabu", "Kamis")
+print(hari[0])
+print(hari[-1])
+print(hari[1:])
+print(hari[:-2])
+for h in hari:
+    print(h)
 
 # 3 (Memodifikasi tuple)
-my_tuple = (1, 10, 100, 1000)
+hari = ("Senin", "Selasa", "Rabu", "Kamis")
 
 # Tuple bersifat immutable, tidak bisa dimodifikasi secara in situ.
 # Cara satu-satunya adalah membuat tuple baru.
-tuple_baru = my_tuple + (10000,)
-print("Tuple baru (ditambah 10000):", tuple_baru)
+hari_lengkap = hari + ("Jumat",)
+print("Tuple baru:", hari_lengkap)
+
 # Contoh percobaan modifikasi yang akan error jika diaktifkan:
-# my_tuple.append(10000)  # AttributeError
-# del my_tuple[0]         # TypeError
-# my_tuple[1] = -10       # TypeError
+# hari.append("Jumat")   # AttributeError
+# del hari[0]            # TypeError
+# hari[1] = "Minggu"     # TypeError
 
 # 4 (Menggunakan tuple dengan len(), +, *, in dan not in)
-my_tuple = (1, 10, 100, 1000)
-t1 = my_tuple + (10000, 100000)
-t2 = my_tuple * 3
-print(len(t2))
-print(t1)
-print(t2)
-print(10 in my_tuple)
-print(-10 not in my_tuple)
+hari = ("Senin", "Selasa", "Rabu", "Kamis")
+gabungan = hari + ("Jumat", "Sabtu")
+diulang = hari * 2
+print(len(diulang))
+print(gabungan)
+print(diulang)
+print("Rabu" in hari)
+print("Minggu" not in hari)
 
 # 5 (Penugasan simultan pada tuple)
-x, y = 1, 2
-print("Sebelum swap: x =", x, ", y =", y)
-x, y = y, x
-print("Setelah swap : x =", x, ", y =", y)
-var = 123
-t1 = (1, )
-t2 = (2, )
-t3 = (3, var)
-t1, t2, t3 = t2, t3, t1
-print(t1, t2, t3)
+panjang, lebar = 15, 8
+print("Sebelum swap: panjang =", panjang, ", lebar =", lebar)
+
+panjang, lebar = lebar, panjang
+print("Setelah swap: panjang =", panjang, ", lebar =", lebar)
+
+kode_pos = 45321
+p = (1,)
+q = (2,)
+r = (3, kode_pos)
+p, q, r = q, r, p
+print(p, q, r)
 
 # 6 (Membuat dictionary dan tampilkan)
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-nilai_alpro2 = {'morin': 90, 'arya': 95, 'faqih': 98}
-dictionary_kosong = {}
-print(dictionary)
-print(nilai_alpro2)
-print(dictionary_kosong)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+profil = {'nama': 'Mentari', 'jurusan': 'Informatika', 'semester': 2}
+kosong = {}
+print(menu_harga)
+print(profil)
+print(kosong)
 
 # 7 (Mengakses isi dictionary)
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-nilai_alpro2 = {'morin': 90, 'arya': 95, 'faqih': 98}
-print(dictionary['cat'])
-print(nilai_alpro2['morin'])
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+profil = {'nama': 'Mentari', 'jurusan': 'Informatika', 'semester': 2}
+print(menu_harga['nasi goreng'])
+print(profil['nama'])
 
 # Mengakses kunci yang tidak ada akan menyebabkan KeyError:
-# print(dictionary['lion'])  # KeyError
+# print(menu_harga['bakso'])  # KeyError
 
 # 8 (Method keys())
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-for kunci in dictionary.keys():
-    print(kunci, "->", dictionary[kunci])
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+for makanan in menu_harga.keys():
+    print(makanan, "->", menu_harga[makanan])
 
 # 9 (Method values())
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-for indo in dictionary.values():
-    print(indo)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+for harga in menu_harga.values():
+    print(harga)
 
 # 10 (Method items())
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-for eng, indo in dictionary.items():
-    print(eng, "->", indo)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
 
+for nama_menu, harga in menu_harga.items():
+    print(nama_menu, "->", harga)
 
 # 11 (Method update())
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-print("Sebelum update:", dictionary)
-dictionary.update({'duck': 'bebek'})
-print("Setelah update :", dictionary)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+print("Sebelum update:", menu_harga)
 
+menu_harga.update({'bakso': 13000})
+print("Setelah update:", menu_harga)
 
 # 12 (Method popitem())
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-print("Sebelum popitem:", dictionary)
-item_dihapus = dictionary.popitem()
-print("Item yang dihapus:", item_dihapus)
-print("Setelah popitem :", dictionary)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+print("Sebelum popitem:", menu_harga)
 
+item_keluar = menu_harga.popitem()
+print("Item yang dihapus:", item_keluar)
+print("Setelah popitem:", menu_harga)
 
 # 13 (Modifikasi dictionary)
-dictionary = {"cat": "kucing", "dog": "anjing", "horse": "kuda"}
-dictionary['cat'] = 'mpus'
-print("Setelah ubah 'cat':", dictionary)
-dictionary['lion'] = 'singa'
-print("Setelah tambah 'lion':", dictionary)
-del dictionary['dog']
-print("Setelah hapus 'dog':", dictionary)
-for key in sorted(dictionary.keys()):
-    print(key, "->", dictionary[key])
-
-dictionary_copy = dictionary.copy()
-print("Salinan dictionary:", dictionary_copy)
-
-warna = (("hijau", "#008000"), ("biru", "#0000FF"))
-kamus_warna = dict(warna)
-print("Kamus warna:", kamus_warna)
-
-dictionary_copy.clear()
-print("Setelah clear():", dictionary_copy)
+menu_harga = {"nasi goreng": 15000, "mie ayam": 12000, "soto": 10000}
+menu_harga['soto'] = 11000
+print("Setelah ubah harga 'soto':", menu_harga)
+menu_harga['bakso'] = 13000
+print("Setelah tambah 'bakso':", menu_harga)
+del menu_harga['mie ayam']
+print("Setelah hapus 'mie ayam':", menu_harga)
+for m in sorted(menu_harga.keys()):
+    print(m, "->", menu_harga[m])
+cadangan = menu_harga.copy()
+print("Salinan:", cadangan)
+kode_warna = (("merah", "#FF0000"), ("hijau", "#00FF00"), ("biru", "#0000FF"))
+palet = dict(kode_warna)
+print("Palet warna:", palet)
+cadangan.clear()
+print("Setelah clear():", cadangan)
 
 # 14 (Menangani exception)
 while True:
     try:
-        bilangan = int(input("Masukkan bilangan natural: "))
-        print("Kebalikan dari", bilangan, "adalah", 1 / bilangan)
+        suhu = int(input("Masukkan suhu dalam Celsius (bilangan bulat): "))
+        print("Suhu dalam Fahrenheit:", (suhu * 9/5) + 32)
         break
     except:
-        print("Peringatan: bilangan yang dimasukkan bukan bilangan bulat!")
+        print("Peringatan: input yang dimasukkan bukan bilangan bulat!")
 
 # 15 (Menangani multiple exception)
 while True:
     try:
-        bilangan = int(input("Masukkan bilangan natural (bukan 0): "))
-        print("Kebalikan dari", bilangan, "adalah", 1 / bilangan)
+        stok = int(input("Masukkan jumlah stok barang (bukan 0): "))
+        print("Rata-rata per hari:", 100 / stok, "barang")
         break
     except ValueError:
-        print("Peringatan: bilangan yang dimasukkan bukan bilangan bulat!")
+        print("Peringatan: input yang dimasukkan bukan bilangan bulat!")
     except ZeroDivisionError:
-        print("Peringatan! tidak bisa membagi dengan 0")
+        print("Peringatan! stok tidak boleh bernilai 0")
     except:
         print("Maaf sepertinya ada yang salah nih... :(")
